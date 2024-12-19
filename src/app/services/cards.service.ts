@@ -22,6 +22,12 @@ export class CardsService {
         'EX Legendary 5/5',
     ];
 
+    private shuffleArray<T>(array: T[]): T[] {
+        return array
+            .map((item) => ({ item, sort: Math.random() }))
+            .sort((a, b) => a.sort - b.sort)
+            .map(({ item }) => item);
+    }
 
     private initialCards: Card[] = [
         {
@@ -87,9 +93,10 @@ export class CardsService {
 
     loadAvailableCards(): void {
         const userCardIds = new Set(this.userCards().map((card) => card.id));
-        this.availableCards.set(
+        const shuffledCards = this.shuffleArray(
             this.initialCards.filter((card) => !userCardIds.has(card.id))
         );
+        this.availableCards.set(shuffledCards);
         this.updateLocalStorage();
     }
 
@@ -208,9 +215,10 @@ export class CardsService {
         this.applyCardEffects();
     }
 
-    resetCards() {
+    resetCards(): void {
         this.userCards.set([]);
-        this.availableCards.set([...this.initialCards]);
+        const shuffledCards = this.shuffleArray([...this.initialCards]);
+        this.availableCards.set(shuffledCards);
         this.updateLocalStorage();
     }
 
