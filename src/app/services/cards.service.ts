@@ -137,7 +137,6 @@ export class CardsService {
         this.updateLocalStorage();
     }
 
-
     checkCardOrder() {
         const currentOrder = this.userCards().map((card) => card.title);
 
@@ -159,15 +158,52 @@ export class CardsService {
                     this.exodiaSummoned.set(false);
                 }, 7500);
             } else {
+                // Play fail sound
                 const failSound = new Audio('assets/audio/diabolic-laugh.mp3');
                 failSound.play();
 
+                // Apply fail effects
                 setTimeout(() => {
-                    alert('Exodia refuses this order! Try again...');
-                    this.resetCards();
-                }, 6000);
+                    const userCardElements = document.querySelectorAll('.user-card-image');
+                    userCardElements.forEach((card) => {
+                        card.classList.add('exodia-fail');
+                    });
+
+                    // Remove effect
+                    setTimeout(() => {
+                        userCardElements.forEach((card) => {
+                            card.classList.remove('exodia-fail');
+                        });
+
+                        // Non-blocking notification
+                        this.showFailureMessage();
+                        this.resetCards();
+                    }, 5000); // Stop animation
+                }, 0); // Ensure DOM updates
             }
         }
+    }
+
+    showFailureMessage() {
+        const messageContainer = document.createElement('div');
+        messageContainer.textContent = 'Exodia refuses this order! Try again...';
+        messageContainer.style.position = 'fixed';
+        messageContainer.style.top = '3%';
+        messageContainer.style.left = '50%';
+        messageContainer.style.transform = 'translateX(-50%)';
+        messageContainer.style.padding = '10px 20px';
+        messageContainer.style.backgroundColor = 'rgba(255, 0, 0, 0.8)';
+        messageContainer.style.color = 'white';
+        messageContainer.style.fontSize = '1.2rem';
+        messageContainer.style.borderRadius = '15px';
+        messageContainer.style.zIndex = '1000';
+
+        document.body.appendChild(messageContainer);
+
+        // Remove message
+        setTimeout(() => {
+            document.body.removeChild(messageContainer);
+        }, 5000);
     }
 
 
