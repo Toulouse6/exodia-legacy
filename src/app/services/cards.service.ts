@@ -178,7 +178,7 @@ export class CardsService {
                         // Non-blocking notification
                         this.showFailureMessage();
                         this.resetCards();
-                    }, 5000); // Stop animation
+                    }, 3000); // Stop animation
                 }, 0); // Ensure DOM updates
             }
         }
@@ -203,7 +203,7 @@ export class CardsService {
         // Remove message
         setTimeout(() => {
             document.body.removeChild(messageContainer);
-        }, 5000);
+        }, 3000);
     }
 
 
