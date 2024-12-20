@@ -48,9 +48,27 @@ footer {
     letter-spacing: 3px;
 }
 
-.fallback-text.hidden {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+.fallback-text {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 1.2vw;
+    letter-spacing: 3px;
+}
+
+.fallback-text.error-text {
+    color: rgba(255, 0, 0, 0.9);
+    font-weight: bold;
+    font-size: 1.5rem;
+    animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
 }
 
 /* Card Layout Section */
@@ -201,6 +219,8 @@ footer {
 
 
 /* Floating Animation */
+
+
 @keyframes exodia-float {
     0% {
         transform: translate(0, 0);
@@ -279,14 +299,17 @@ footer {
 
 /* Red Glow */
 @keyframes exodia-red-glow {
-    0%, 100% {
-        box-shadow: 
-            0 0 15px rgba(255, 0, 0, 0.8), 
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 15px rgba(255, 0, 0, 0.8),
             0 0 30px rgba(255, 0, 0, 0.6);
     }
+
     50% {
-        box-shadow: 
-            0 0 25px rgba(255, 0, 0, 1), 
+        box-shadow:
+            0 0 25px rgba(255, 0, 0, 1),
             0 0 40px rgba(255, 0, 0, 0.8);
     }
 }

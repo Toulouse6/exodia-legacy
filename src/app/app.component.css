@@ -33,6 +33,22 @@ header h3 {
     position: relative;
 }
 
+/* Error */
+.error-notification {
+    position: fixed;
+    top: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: rgba(255, 0, 0, 0.8);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 15px;
+    z-index: 1000;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
 
 
 @media (max-width: 1600px) {
@@ -141,6 +157,11 @@ header h3 {
         font-size: 2vw;
     }
 
+    .error-notification {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+
 }
 
 
@@ -180,12 +201,16 @@ header h3 {
     }
 
     header h3 {
-        margin: 0 auto -10px 0;
+        margin: 0 auto -40px 0;
         font-size: 3.5vw;
         line-height: 1.6;
         width: 100%;
     }
 
+    .error-notification {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
 
 
 }

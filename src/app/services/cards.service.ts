@@ -13,7 +13,6 @@ export class CardsService {
     loadedUserCards = this.userCards.asReadonly();
     loadedAvailableCards = this.availableCards.asReadonly();
 
-
     targetOrder: string[] = [
         'EX Legendary 1/5',
         'EX Legendary 2/5',
@@ -107,6 +106,7 @@ export class CardsService {
 
     // Add Card
     addCardToUserCards(card: Card): void {
+
         if (this.userCards().some((c) => c.id === card.id)) return;
 
         const updatedUserCards = [...this.userCards(), card];
@@ -137,75 +137,106 @@ export class CardsService {
         this.updateLocalStorage();
     }
 
-    checkCardOrder() {
+
+    checkCardOrder(): boolean {
+
         const currentOrder = this.userCards().map((card) => card.title);
 
-        if (currentOrder.length === this.targetOrder.length) {
-            const isCorrectOrder = currentOrder.every((title, index) => title === this.targetOrder[index]);
 
-            if (isCorrectOrder) {
-                this.triggerExodiaAnimation();
-                this.applyCardEffects();
-                console.log('Exodia Summoned!');
-                this.exodiaSummoned.set(true);
+        // If we don't have all cards yet, return true (order is still possible)
+        if (currentOrder.length !== this.targetOrder.length) {
+            return true;
+        }
 
-                // Summon sound
-                const summonSound = new Audio('assets/audio/exodia-summon.mp3');
-                summonSound.play();
+        // Create an array with all the expected card indices for animations
+        const userCardElements = Array.from(document.querySelectorAll('.user-card-image'));
 
-                setTimeout(() => {
-                    this.resetCards();
-                    this.exodiaSummoned.set(false);
-                }, 7500);
-            } else {
-                // Play fail sound
-                const failSound = new Audio('assets/audio/diabolic-laugh.mp3');
-                failSound.play();
+        // Check if the order matches the target order
+        const isCorrectOrder = currentOrder.every(
+            (title, index) => title === this.targetOrder[index]
+        );
 
-                // Apply fail effects
-                setTimeout(() => {
-                    const userCardElements = document.querySelectorAll('.user-card-image');
-                    userCardElements.forEach((card) => {
-                        card.classList.add('exodia-fail');
-                    });
+        if (isCorrectOrder) {
+            // Success case
+            this.triggerExodiaAnimation();
+            this.applyCardEffects();
+            console.log('Exodia Summoned!');
+            this.exodiaSummoned.set(true);
 
-                    // Remove effect
-                    setTimeout(() => {
-                        userCardElements.forEach((card) => {
-                            card.classList.remove('exodia-fail');
-                        });
-
-                        // Non-blocking notification
-                        this.showFailureMessage();
-                        this.resetCards();
-                    }, 3000); // Stop animation
-                }, 0); // Ensure DOM updates
+            // Add success animation class to all cards
+            for (let i = 0; i < this.targetOrder.length; i++) {
+                const card = userCardElements[i];
+                if (card) {
+                    card.classList.add('exodia-success');
+                } else {
+                    console.warn(`Card element missing for index ${i}`);
+                }
             }
+
+            const summonSound = new Audio('assets/audio/exodia-summon.mp3');
+            summonSound.play();
+            this.exodiaSummoned.set(false);
+
+            setTimeout(() => {
+                // Remove success animation class
+                for (let i = 0; i < this.targetOrder.length; i++) {
+                    const card = userCardElements[i];
+                    if (card) {
+                        card.classList.remove('exodia-success');
+                    }
+                }
+                this.resetCards();
+            }, 7500);
+
+            return true;
+        }
+
+        // Failure case
+        const failSound = new Audio('assets/audio/diabolic-laugh.mp3');
+        failSound.play();
+
+        setTimeout(() => {
+            const userCardElements = document.querySelectorAll('.user-card-image');
+            userCardElements.forEach((card) => {
+                card.classList.add('exodia-fail');
+            });
+
+
+            // Remove effect
+            setTimeout(() => {
+                userCardElements.forEach((card) => {
+                    card.classList.remove('exodia-fail');
+                });
+
+                // Non-blocking notification
+                this.showFailureMessage();
+                this.resetCards();
+            }, 3000); // Stop animation
+        }, 0); // Ensure DOM updates
+
+
+        return false;
+    }
+
+
+
+    private updateFallbackText(newText: string, duration: number): void {
+        const fallbackTextElement = document.querySelector('.fallback-text');
+        if (fallbackTextElement) {
+            const originalText = fallbackTextElement.textContent;
+            fallbackTextElement.textContent = newText;
+            fallbackTextElement.classList.add('error-text');
+
+            setTimeout(() => {
+                fallbackTextElement.textContent = originalText;
+                fallbackTextElement.classList.remove('error-text');
+            }, duration);
         }
     }
 
     showFailureMessage() {
-        const messageContainer = document.createElement('div');
-        messageContainer.textContent = 'Exodia refuses this order! Try again...';
-        messageContainer.style.position = 'fixed';
-        messageContainer.style.top = '3%';
-        messageContainer.style.left = '50%';
-        messageContainer.style.transform = 'translateX(-50%)';
-        messageContainer.style.padding = '10px 20px';
-        messageContainer.style.backgroundColor = 'rgba(255, 0, 0, 0.8)';
-        messageContainer.style.color = 'white';
-        messageContainer.style.fontSize = '1.2rem';
-        messageContainer.style.borderRadius = '15px';
-        messageContainer.style.zIndex = '1000';
-
-        document.body.appendChild(messageContainer);
-
-        // Remove message
-        setTimeout(() => {
-            document.body.removeChild(messageContainer);
-        }, 3000);
+        this.updateFallbackText('Exodia refuses this order! Try again...', 3000);
     }
-
 
     private applyCardEffects() {
         setTimeout(() => {

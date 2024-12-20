@@ -1,26 +1,31 @@
 <div class="user-cards-section">
-    <!-- Loading Indicator -->
-    <ng-container *ngIf="isFetching(); else userCardsContent">
-        <p class="fallback-text">Exodia reborn...</p>
-    </ng-container>
-
-    <!-- Content -->
-    <ng-template #userCardsContent>
-        <!-- Cards -->
+    
+    <!-- User Cards Content -->
+    <ng-container *ngIf="!isFetching() && !availableCardsFetching(); else loadingState">
         <ul *ngIf="userCards().length > 0; else noUserCards">
             <li *ngFor="let card of userCards(); trackBy: trackById" class="card-item user-card-item">
                 <button (click)="onRemoveCard(card)">
-                    <img [src]="'assets/cards/' + card.image.src" [alt]="card.image.alt" class="user-card-image" />
+                    <img 
+                        [src]="'assets/cards/' + card.image.src" 
+                        [alt]="card.image.alt" 
+                        class="user-card-image" 
+                    />
                 </button>
             </li>
         </ul>
 
         <!-- No Cards Selected -->
         <ng-template #noUserCards>
-            <p class="fallback-text"
-                *ngIf="!isFetching() && !availableCardsFetching() && !cardsService.exodiaSummoned()">
+            <p class="fallback-text">
                 Complete the Forbidden Assembly
             </p>
         </ng-template>
+    </ng-container>
+
+    <!-- Loading State -->
+    <ng-template #loadingState>
+        <p class="fallback-text">
+            Loading the Forbidden Pieces...
+        </p>
     </ng-template>
 </div>
