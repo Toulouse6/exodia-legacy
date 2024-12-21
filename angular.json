@@ -23,7 +23,7 @@
             },
             "configurations": {
               "production": {
-                "outputPath": "dist",
+                "outputPath": "dist/",
                 "optimization": true,
                 "sourceMap": false,
                 "extractLicenses": true,
