@@ -48,13 +48,6 @@ footer {
     letter-spacing: 3px;
 }
 
-.fallback-text {
-    text-align: center;
-    margin-top: 3rem;
-    font-size: 1.2vw;
-    letter-spacing: 3px;
-}
-
 .fallback-text.error-text {
     color: rgba(255, 0, 0, 0.9);
     font-weight: bold;
@@ -217,9 +210,11 @@ footer {
     transform-origin: center;
 }
 
-
-/* Floating Animation */
-
+/* Success or fail margin-top */
+.user-cards-section ul.effect-active {
+    margin-top: -3.5rem;
+    transition: margin-top 0.5s ease-in-out;
+}
 
 @keyframes exodia-float {
     0% {
@@ -361,7 +356,7 @@ footer {
 
 @media (max-width: 530px) {
 
-    .user-card-section ul {
+    .user-cards-section ul {
         gap: 0rem;
     }
 
