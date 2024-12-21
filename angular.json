@@ -23,7 +23,7 @@
             },
             "configurations": {
               "production": {
-                "outputPath": "dist/exodia-legacy",
+                "outputPath": "dist",
                 "optimization": true,
                 "sourceMap": false,
                 "extractLicenses": true,
