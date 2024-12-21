@@ -1,37 +1,52 @@
-/* Header */
 header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     text-align: center;
+    max-height: 25vh;
+    width: 100%;
+    position: relative;
+    padding: 0;
+    margin: 0 auto;
 }
 
+/* Background image */
 header img {
-    margin: -18rem auto 0 auto;
-    width: 45vw;
-    object-fit: contain;
+    width: 100%;
+    max-width: 60rem;
     opacity: 0.3;
     filter: drop-shadow(0px 0px 8px rgb(0, 0, 0));
-    position: relative;
+    position: absolute;
     z-index: 1;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
+/* Main title */
 header h1 {
-    margin: -24rem auto 3rem;
-    font-size: 4vw;
+    font-size: 3.8vw;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 10px;
-    z-index: 3000;
+    margin: 2.5rem auto 1rem;
+    width: 100%;
     position: relative;
+    z-index: 2;
 }
 
+/* Subtitle */
 header h3 {
-    margin: -3rem auto -3rem;
     font-size: 1.5vw;
     font-weight: 500;
     letter-spacing: 3px;
-    width: 90%;
-    z-index: 3000;
+    margin: 0 auto -3rem;
+    width: 100%;
     position: relative;
+    z-index: 2;
 }
+
 
 /* Error */
 .error-notification {
@@ -40,7 +55,7 @@ header h3 {
     left: 50%;
     transform: translateX(-50%);
     padding: 10px 20px;
-    background-color: rgba(255, 0, 0, 0.8);
+    background-color: rgba(89, 41, 77, 0.8);
     color: white;
     font-size: 1.2rem;
     font-weight: bold;
@@ -55,12 +70,10 @@ header h3 {
 
 
     header img {
-        margin: -16rem auto 0 auto;
         width: 45vw;
     }
 
     header h1 {
-        margin: -22rem auto 3.2rem;
         font-size: 4vw;
     }
 
@@ -77,12 +90,10 @@ header h3 {
 
 
     header img {
-        margin: -19rem auto 0 auto;
         width: 55vw;
     }
 
     header h1 {
-        margin: -23rem auto 3.2rem;
         font-size: 4vw;
     }
 
@@ -94,17 +105,11 @@ header h3 {
 
 
     header img {
-        margin: -14rem auto 0 auto;
         width: 50vw;
     }
 
     header h1 {
-        margin: -16rem auto 2rem;
         font-size: 4vw;
-    }
-
-    header h3 {
-        margin: -1.5rem auto -3rem;
     }
 
 }
@@ -114,18 +119,14 @@ header h3 {
 @media (max-width: 1024px) {
 
     header img {
-        margin: -16rem auto 0 auto;
         width: 70vw;
     }
 
     header h1 {
-        margin: -18rem auto 2rem;
         font-size: 4vw;
     }
 
-    header h3 {
-        font-size: 1.8vw;
-    }
+    header h3 {}
 
 }
 
@@ -133,17 +134,14 @@ header h3 {
 @media (max-width: 840px) {
 
     header img {
-        margin: -15rem auto 0 auto;
         width: 75vw;
     }
 
     header h1 {
-            margin: -17rem auto 1.8rem;
-            font-size: 5vw;
-        }
+        font-size: 5vw;
+    }
 
     header h3 {
-        margin: -1rem auto -3rem;
         font-size: 2vw;
     }
 
@@ -159,18 +157,15 @@ header h3 {
 @media (max-width: 768px) {
 
     header img {
-        margin: -14rem auto 0 auto;
         width: 85vw;
     }
 
- 
+
     header h1 {
-        margin: -17rem auto 1rem;
         font-size: 6.5vw;
     }
 
     header h3 {
-        margin: 0rem auto -3rem auto;
         font-size: 2.8vw;
         line-height: 1.6;
     }
@@ -180,13 +175,11 @@ header h3 {
 @media (max-width: 620px) {
 
     header img {
-        margin: -12rem auto 0 auto;
         width: 90vw;
     }
 
- 
+
     header h1 {
-        margin: -14rem auto 1rem;
         font-size: 7vw;
     }
 
@@ -196,18 +189,15 @@ header h3 {
 @media (max-width: 430px) {
 
     header img {
-        margin: -180px auto -55px -65px;
         width: 115vw;
         opacity: 0.4;
     }
 
     header h1 {
-        margin: -140px auto 10px 5px;
         font-size: 8vw;
     }
 
     header h3 {
-        margin: 0 auto -40px 0;
         font-size: 3.5vw;
         line-height: 1.6;
         width: 100%;

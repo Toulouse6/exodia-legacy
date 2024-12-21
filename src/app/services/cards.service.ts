@@ -186,7 +186,7 @@ export class CardsService {
                     }
                 }
                 this.resetCards();
-            }, 7500);
+            }, 7000);
 
             return true;
         }
@@ -211,7 +211,7 @@ export class CardsService {
                 // Non-blocking notification
                 this.showFailureMessage();
                 this.resetCards();
-            }, 3000); // Stop animation
+            }, 3500); // Stop animation
         }, 0); // Ensure DOM updates
 
 
@@ -281,7 +281,7 @@ export class CardsService {
         if (exodiaHeaderImg) {
             console.log('Applying exodia-header-effect to image');
             exodiaHeaderImg.classList.add('exodia-header-effect');
-            setTimeout(() => exodiaHeaderImg.classList.remove('exodia-header-effect'), 4000);
+            setTimeout(() => exodiaHeaderImg.classList.remove('exodia-header-effect'), 6000);
         }
 
         this.applyCardEffects();
