@@ -15,22 +15,23 @@ header {
 header img {
     width: 100%;
     max-width: 60rem;
-    opacity: 0.3;
+    opacity: 0;
     filter: drop-shadow(0px 0px 8px rgb(0, 0, 0));
     position: absolute;
     z-index: 1;
-    top: 40%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 /* Main title */
 header h1 {
-    font-size: 3.8vw;
+    font-size: 3.5vw;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 10px;
-    margin: 2.5rem auto 1rem;
+    letter-spacing: 15px;
+    text-shadow: -5px 0 5px black;
+    margin: 1rem auto 0;
     width: 100%;
     position: relative;
     z-index: 2;
@@ -38,7 +39,7 @@ header h1 {
 
 /* Subtitle */
 header h3 {
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     font-weight: 500;
     letter-spacing: 3px;
     margin: 0 auto -3rem;
@@ -110,6 +111,7 @@ header h3 {
 
     header h1 {
         font-size: 4vw;
+        margin-bottom: 0.5rem;
     }
 
 }
@@ -123,7 +125,11 @@ header h3 {
     }
 
     header h1 {
-        font-size: 4vw;
+        font-size: 5vw;
+    }
+
+    header h3 {
+        font-size: 2vw;
     }
 
 }
@@ -132,14 +138,6 @@ header h3 {
 
     header img {
         width: 75vw;
-    }
-
-    header h1 {
-        font-size: 5vw;
-    }
-
-    header h3 {
-        font-size: 2vw;
     }
 
     .error-notification {
@@ -163,7 +161,7 @@ header h3 {
     }
 
     header h3 {
-        font-size: 2.8vw;
+        font-size: 2.2vw;
         line-height: 1.6;
     }
 
@@ -180,6 +178,12 @@ header h3 {
         font-size: 7vw;
     }
 
+    header h3 {
+        font-size: 2.8vw;
+        line-height: 1.5;
+        width: 100%;
+    }
+
 }
 
 
@@ -187,11 +191,11 @@ header h3 {
 
     header img {
         width: 115vw;
-        opacity: 0.4;
     }
 
     header h1 {
         font-size: 8vw;
+        letter-spacing: 10px;
     }
 
     header h3 {

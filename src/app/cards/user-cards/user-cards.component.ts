@@ -11,29 +11,11 @@ import { CommonModule } from '@angular/common';
     imports: [CommonModule],
 })
 export class UserCardsComponent implements OnInit {
+  
     isFetching = signal(false);
     availableCardsFetching = signal(false);
     error = signal('');
     userCards = this.cardsService.loadedUserCards;
-
-    // Compute fallback message based on state
-    fallbackMessage = computed(() => {
-        if (this.isFetching() || this.availableCardsFetching()) {
-            return 'Loading the Forbidden Pieces...';
-        }
-        if (this.userCards().length > 0) {
-            if (this.cardsService.checkCardOrder() === false) {
-                return 'Exodia refuses this order! Try again...';
-            }
-            if (this.userCards().length > 0) {
-                if (this.cardsService.checkCardOrder() === false) {
-                    return 'Complete the Forbidden Assembly';
-                }
-            }
-
-        }
-        return '';
-    });
 
 
     constructor(public cardsService: CardsService) { }
@@ -49,6 +31,25 @@ export class UserCardsComponent implements OnInit {
             this.isFetching.set(false);
         }
     }
+
+       // Compute fallback message based on state
+       fallbackMessage = computed(() => {
+        if (this.isFetching() || this.availableCardsFetching()) {
+            return 'Loading the Forbidden Pieces...';
+        }
+        if (this.userCards().length > 0) {
+            if (!this.cardsService.checkCardOrder() === false) {
+                return 'Exodia refuses this order! Try again...';
+            }
+            if (this.userCards().length > 0) {
+                if (this.cardsService.checkCardOrder() === false) {
+                    return 'Complete the Forbidden Assembly';
+                }
+            }
+
+        }
+        return '';
+    });
 
     onRemoveCard(card: Card) {
         try {

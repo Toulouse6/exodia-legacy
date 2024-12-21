@@ -194,6 +194,7 @@ export class CardsService {
         // Failure case
         const failSound = new Audio('assets/audio/diabolic-laugh.mp3');
         failSound.play();
+        this.showFailureMessage();
 
         setTimeout(() => {
             const userCardElements = document.querySelectorAll('.user-card-image');
@@ -208,8 +209,6 @@ export class CardsService {
                     card.classList.remove('exodia-fail');
                 });
 
-                // Non-blocking notification
-                this.showFailureMessage();
                 this.resetCards();
             }, 3500); // Stop animation
         }, 0); // Ensure DOM updates
