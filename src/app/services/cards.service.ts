@@ -241,8 +241,7 @@ export class CardsService {
         setTimeout(() => {
           
             const userCards = document.querySelectorAll('.user-card-image');
-            const userCardsSectionUl = document.querySelector('.user-cards-section ul'); 
-          
+        
             if (userCards.length === 0) {
                 console.warn('No user cards found for animation.');
                 return;

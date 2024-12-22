@@ -84,11 +84,11 @@ footer {
     overflow-y: visible;
     white-space: nowrap;
     scroll-behavior: smooth;
-    margin-top: 3rem;
+    margin-top: 1rem;
     gap: 1rem;
     justify-content: center;
     padding-right: 2rem;
-    padding-top: 2rem;
+    padding-top: 0;
 }
 
 /* Available Cards Section */
@@ -101,7 +101,7 @@ footer {
     padding-right: 2rem;
     max-width: 38rem;
     justify-content: center;
-    padding-top: 2rem;
+    padding-top: 1rem;
 }
 
 /* Card Items */
@@ -114,7 +114,6 @@ footer {
     border-radius: 5px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     width: 150px;
-    z-index: 2000;
     overflow: visible;
 }
 
@@ -150,6 +149,7 @@ footer {
     transition: filter 0.4s ease-in-out, transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
     border-radius: 5px;
     border: 2px solid transparent;
+    margin: 1.5rem auto;
 }
 
 
@@ -160,7 +160,7 @@ footer {
 /* Header Image Animation */
 
 #exodia-header img.exodia-header-effect {
-    animation: exodia-header-glow 6s;
+    animation: exodia-header-glow 7s;
 }
 
 
@@ -187,15 +187,15 @@ footer {
     }
 
     25% {
-        opacity: 0.3;
+        opacity: 0.2;
     }
 
     50% {
-        opacity: 0.5;
+        opacity: 0.8;
     }
 
     75% {
-        opacity: 0.3;
+        opacity: 0.2;
     }
 
     100% {
