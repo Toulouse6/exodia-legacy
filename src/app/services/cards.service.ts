@@ -173,7 +173,7 @@ export class CardsService {
                 }
             }
 
-            const summonSound = new Audio('assets/audio/monster-howl.mp3');
+            const summonSound = new Audio('assets/audio/dragon-roar.mp3');
             summonSound.play();
             this.exodiaSummoned.set(false);
 
