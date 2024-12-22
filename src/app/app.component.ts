@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
 
     // Play background music
     playBackgroundMusic() {
-        this.backgroundMusic.src = 'assets/audio/dark-atmosphere.mp3';
+        this.backgroundMusic.src = 'assets/audio/tribe-drum.mp3';
         this.backgroundMusic.loop = true; // Loop
         this.backgroundMusic.volume = 0.3; // Volume
         this.backgroundMusic.play();
@@ -56,7 +56,7 @@ export class AppComponent implements OnInit {
 
     // Play summon effect
     playExodiaSummonEffect() {
-        this.exodiaSummonSound.src = 'assets/audio/exodia-summon.mp3';
+        this.exodiaSummonSound.src = 'assets/audio/bels-melody.mp3';
         this.exodiaSummonSound.volume = 8.0; // Volume
         this.exodiaSummonSound.play();
     }
