@@ -372,6 +372,7 @@ footer {
 
     .available-cards-section ul {
         gap: 0.3rem;
+        overflow: visible;
     }
 
 
@@ -396,6 +397,7 @@ footer {
 
         .available-cards-section ul {
             margin: -5px auto;
+            overflow: visible;
             gap: 0.2rem;
             width: 100%;
             padding: 0 1rem;
