@@ -314,6 +314,14 @@ footer {
     .user-cards-section ul {
         gap: 5px
     }
+
+    .available-cards-section ul {
+        margin: 2rem auto 0;
+        gap: .2rem;
+        justify-content: center;
+        width: 100%;
+        overflow: visible;
+    }
 }
 
 @media (max-width: 530px) {
@@ -329,7 +337,8 @@ footer {
         .card-section ul {
             gap: .2rem;
             justify-content: center;
-            overflow-x: hidden
+            overflow-x: visible;
+            width: 100%;
         }
 
         .user-cards-section ul {
