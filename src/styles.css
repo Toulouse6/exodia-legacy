@@ -56,9 +56,12 @@ footer {
 }
 
 @keyframes fadeInOut {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0;
     }
+
     50% {
         opacity: 1;
     }
@@ -135,9 +138,9 @@ footer {
 
 .card-item button:hover img {
     box-shadow:
-        0 0 10px rgba(181,145,64, 0.8),
-        0 0 20px rgba(181,145,64, 0.6),
-        0 0 30px rgba(181,145,64, 0.5);
+        0 0 10px rgba(181, 145, 64, 0.8),
+        0 0 20px rgba(181, 145, 64, 0.6),
+        0 0 30px rgba(181, 145, 64, 0.5);
 }
 
 
@@ -169,14 +172,14 @@ footer {
     0%,
     100% {
         box-shadow:
-            0 0 10px rgba(181,145,64, 0.8),
-            0 0 15px rgba(181,145,64, 0.6);
+            0 0 10px rgba(181, 145, 64, 0.8),
+            0 0 15px rgba(181, 145, 64, 0.6);
     }
 
     50% {
         box-shadow:
-            0 0 10px rgba(181,145,64, 1),
-            0 0 20px rgba(181,145,64, 0.8);
+            0 0 10px rgba(181, 145, 64, 1),
+            0 0 20px rgba(181, 145, 64, 0.8);
     }
 }
 
@@ -208,7 +211,7 @@ footer {
     animation: exodia-golden-glow 2s infinite alternate, exodia-float 8s infinite ease-in-out;
     animation-delay: calc(var(--index) * 0.5s);
     z-index: 10;
-    border: 3px solid rgba(181,145,64, 0.8);
+    border: 3px solid rgba(181, 145, 64, 0.8);
     border-radius: 10px;
     transform-origin: center;
 }
@@ -360,11 +363,11 @@ footer {
 @media (max-width: 530px) {
 
     .user-cards-section ul {
-        gap: 0.6rem;
+        gap: 3px;
     }
 
     .card-item {
-        width: 110px;
+        width: 92px;
     }
 
     .available-cards-section ul {
@@ -379,27 +382,23 @@ footer {
             overflow-x: hidden;
         }
 
-
-        .user-cards-section ul {
-            display: flex;
-            margin: 0 auto -2rem -60px;
-            gap: 5px;
-            width: 435px;
-            justify-content: center;
-            column-gap: 0px;
-        }
-
         .user-card-item img {
-            width: 100px !important;
+            width: 92px !important;
             height: auto;
         }
 
+        .user-cards-section ul {
+            margin: 1rem auto -6rem;
+            gap: 5px;
+            width: 100%;
+            padding: 0 0rem;
+        }
+
         .available-cards-section ul {
-            margin: 3rem 0 0 -50px;
+            margin: -5px auto;
             gap: 0.2rem;
-            justify-content: center;
-            overflow-x: hidden;
-            width: 420px;
+            width: 100%;
+            padding: 0 1rem;
         }
 
         .available-card-item img {
