@@ -392,7 +392,7 @@ footer {
             margin: 2rem auto -6rem;
             gap: 5px;
             width: 100%;
-            padding: 0 0rem;
+            padding: 0 0;
         }
 
         .available-cards-section ul {
