@@ -1,7 +1,6 @@
 ## Exodia Legacy
 
-<img align="right" src="./src/assets/exodia-screen
-.png" alt="exodia-screenshot" width="350">
+<img align="right" src="./src/assets/exo-screenshot.png" alt="exodia-screenshot" width="350">
 
 Gather the five legendary pieces of Exodia. Once all are collected in the correct order, the Forbidden Assembly will be complete, summoning Exodia and unleashing its ultimate power!
 
