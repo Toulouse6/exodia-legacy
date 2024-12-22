@@ -163,7 +163,7 @@ footer {
 /* Header Image Animation */
 
 #exodia-header img.exodia-header-effect {
-    animation: exodia-header-glow 7s;
+    animation: exodia-header-glow 8s;
 }
 
 
@@ -208,7 +208,7 @@ footer {
 
 /* Golden glow & float for Cards */
 .user-card-image.exodia-effect {
-    animation: exodia-golden-glow 2s infinite alternate, exodia-float 8s infinite ease-in-out;
+    animation: exodia-golden-glow 2s infinite alternate, exodia-float 7s infinite ease-in-out;
     animation-delay: calc(var(--index) * 0.5s);
     z-index: 10;
     border: 3px solid rgba(181, 145, 64, 0.8);
