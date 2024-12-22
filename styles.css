@@ -79,7 +79,7 @@ footer {
     overflow-y: visible;
     white-space: nowrap;
     scroll-behavior: smooth;
-    margin-top: 3rem;
+    margin-top: 2rem;
     gap: 1rem;
     justify-content: center;
     padding-right: 2rem;
@@ -347,11 +347,11 @@ footer {
         }
 
         .available-cards-section ul {
-            margin: 2rem 0 0 -50px;
+            margin: 2rem auto 0;
             gap: .2rem;
             justify-content: center;
-            overflow-x: hidden;
-            width: 420px
+            width: 100%;
+            overflow: visible;
         }
 
         .available-card-item img {
